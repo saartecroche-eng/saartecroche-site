@@ -69,7 +69,8 @@
     b.style.setProperty("--hex", cor.hex || "#cccccc");
     if (cor.imagem) {
       // amostra: recorte minúsculo da própria foto da cor (cor idêntica à foto)
-      var am = "imagens/amostras/" + cor.imagem.replace(/^imagens\//, "").replace(/\//g, "-");
+      var chave = cor.imagem.replace(/^imagens\//, "").replace(/\//g, "-");
+      var am = (typeof AMOSTRAS !== "undefined" && AMOSTRAS[chave]) || ("imagens/amostras/" + chave);
       b.style.backgroundImage = 'url("' + am + '")';
       b.style.backgroundSize = "cover";
       b.style.backgroundPosition = "center";
